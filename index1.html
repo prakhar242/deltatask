@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> My Mentees </title>
+</head>
+	<body>
+		Welcome to <b> Delta Inductions </b>
+</br> Full Name :<input type="text" id="text1"></input>
+</br> Department :<input type="text" id="text2"></input>
+</br> Rating : <input type="number" id="rti"></input>
+</br> Comments :<input type="text" id="cmnt"></input>
+<input type="button" id="button1" value="Add details" onclick="add_details();"></input>
+<input type="button" id="button2" value="Display" onclick="display_array();"></input>
+<input type="button" id="button3" value="Delete" onclick="Del();"></input>
+<input type="button" id="button4" value = "Edit" onclick="Edit();"></input>
+<div id="Result"></div>
+<p id="demo"></p>
+<script type="text/javascript">
+	var x = 0;
+	var k = "<hr/>";
+	var j = "<hr/>";
+	var t = "<hr/>";
+	var m = "<hr/>";
+	var m1 = "<hr/>";
+	var m2 = "<hr/>";
+	var m3 = "<hr/>";
+	var m4 = "<hr/>";
+	var m5 = "<hr/>";
+	var p = "<hr/>";
+	var g = "<hr/>";
+	var u = "<hr/>";
+	var arr = [];
+function add_details()
+{
+arr.push({"name":document.getElementById("text1").value , "department":document.getElementById("text2").value , "rating": document.getElementById("rti").value , "comments":document.getElementById("cmnt").value});
+alert("Mentee " + arr[x].name + " is added ");
+ x++;
+ document.getElementById("text1").value = "";
+ document.getElementById("text2").value= "";
+ document.getElementById("rti").value = "";
+ document.getElementById("cmnt").value= "";
+}
+function display_array()
+{
+   var e = "<hr/>";   
+    
+   for (var y=0; y<arr.length; y++)
+   {
+     e += "Mentee " + (y+1) + " is " + arr[y].name + "<br/>";
+   }
+   document.getElementById("Result").innerHTML = e;
+}
+function Del()
+{
+	m=document.createElement("INPUT");
+	m.setAttribute("type" , "text");
+	m.setAttribute("value" , "Enter Mentee Name");
+	m.setAttribute("id" , "ky");
+	document.body.appendChild(m);
+	k=document.createElement("INPUT");
+	k.setAttribute("type" , "button");
+	k.setAttribute("value" , "Submit");
+	k.setAttribute("onclick" , j = document.getElementById("ky").value);
+	document.body.appendChild(k);
+	l=arr.indexOf(j);
+	arr.splice(l,1);
+}
+function Edit()
+{
+    p=document.createElement("INPUT");
+	p.setAttribute("type" , "text");
+	p.setAttribute("value" , "Enter Mentee Name");
+	p.setAttribute("id" , "kyz");
+	document.body.appendChild(p);
+	g=document.createElement("INPUT");
+	g.setAttribute("type" , "button");
+	g.setAttribute("value" , "Submit");
+	g.setAttribute("onclick" , u = document.getElementById("kyz").value);
+	document.body.appendChild(g);
+  for (var d=0; d < arr.length; d++) 
+ {
+		if (u== arr[d].name)
+ {
+     m1=document.createElement("INPUT");
+	m1.setAttribute("type" , "text");
+	m1.setAttribute("value" , "Enter Mentee Name");
+	m1.setAttribute("id" , "nm");
+	document.body.appendChild(m1);
+	m2=document.createElement("INPUT");
+	m2.setAttribute("type" , "text");
+	m2.setAttribute("value" , "Enter Mentee Department");
+	m2.setAttribute("id" , "dep");
+	document.body.appendChild(m2);
+	m3=document.createElement("INPUT");
+	m3.setAttribute("type" , "number");
+	m3.setAttribute("value" , "Enter Mentee Rating");
+	m3.setAttribute("id" , "rt");
+	document.body.appendChild(m3);
+	m4=document.createElement("INPUT");
+	m4.setAttribute("type" , "text");
+	m4.setAttribute("value" , "Enter Mentee Comment");
+	m4.setAttribute("id" , "cm");
+	document.body.appendChild(m4);
+	m5=document.createElement("INPUT");
+	m5.setAttribute("type" , "button");
+	m5.setAttribute("value" , "Submit");
+	m5.setAttribute("id" , "bt");
+	m5.setAttribute("onclick" , "Edit1();");
+	document.body.appendChild(m5);
+}
+}
+	 function Edit1()
+{
+     arr[d].name= document.getElementById("nm").value;
+     arr[d].department= document.getElementById("dep").value;
+     arr[d].rating= document.getElementById("rt").value;
+     arr[d].comments= document.getElementById("cm").value;
+}
+} 
+</script> 
+</body>
+</html>
