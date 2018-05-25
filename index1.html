@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> My Mentees </title>
+</head>
+	<body>
+		Welcome to <b> Delta Inductions </b>
+</br> Full Name :<input type="text" id="text1"></input>
+</br> Roll No. :<input type="text" id="roll"></input>
+</br> Department :<input type="text" id="text2"></input>
+</br> Rating : <input type="number" id="rti"></input>
+</br> Comments :<input type="text" id="cmnt"></input>
+<input type="button" id="button1" value="Add details" onclick="add_details();"></input>
+<input type="button" id="button2" value="Display" onclick="display_array();"></input>
+<input type="button" id="button3" value="Delete" onclick="Del();"></input>
+<input type="button" id="button4" value = "Edit" onclick="Edit();"></input>
+<div id="Result"></div>
+<p id="demo"></p>
+<script type="text/javascript">
+	var x = 0;
+	var k = "<hr/>";
+	var j = "<hr/>";
+	var t = "<hr/>";
+	var m = "<hr/>";
+	var m1 = "<hr/>";
+	var m2 = "<hr/>";
+	var m3 = "<hr/>";
+	var m4 = "<hr/>";
+	var m5 = "<hr/>";
+	var p = "<hr/>";
+	var g = "<hr/>";
+	var u = "<hr/>";
+	var arr = [];
+function add_details()
+{
+arr.push({"name":document.getElementById("text1").value , "department":document.getElementById("text2").value , "rating": document.getElementById("rti").value , "comments":document.getElementById("cmnt").value , "rollnum":document.getElementById("roll").value});
+alert("Mentee " + arr[x].name + " is added ");
+ x++;
+ document.getElementById("text1").value = "";
+ document.getElementById("text2").value= "";
+ document.getElementById("rti").value = "";
+ document.getElementById("cmnt").value= "";
+ document.getElementById("roll").value = "";
+}
+function display_array()
+{
+   var e = "<hr/>";   
+    
+   for (var y=0; y<arr.length; y++)
+   {
+     e += "Mentee " + (y+1) + " is " + arr[y].name + "<br/>" + "Roll No. : " + arr[y].rollnum + "<br/>" + "Department : " + arr[y].department + "<br/>" + "Ratings(out of 5) : " + arr[y].rating + "<br/>" + "Comments : " + arr[y].comments + "<br/>";
+   }
+   document.getElementById("Result").innerHTML = e;
+}
+function Del()
+{
+	u = document.getElementById("text1").value;
+	for (g = 0; g < arr.length; g++) 
+	{
+		if(u===arr[g].name)
+		{
+			p = arr.findIndex(v =>v.name === u);
+			arr.splice(p,1);
+			break;
+		}
+	}
+	document.getElementById("text1").value = "";
+}
+function Edit()
+{
+alert("Make sure to fill all boxes(including correct roll number)");
+for (var i = 0; i < arr.length; i++) 
+{
+	if(arr[i].rollnum === document.getElementById("roll").value)
+	{
+		m1=i;
+		break;
+	}
+}
+arr[m1].name=document.getElementById("text1").value;
+arr[m1].rollnum=document.getElementById("roll").value;
+arr[m1].department=document.getElementById("text2").value;
+arr[m1].rating=document.getElementById("rti").value;
+arr[m1].comments=document.getElementById("cmnt").value;
+alert("Mentee " + (m1+1) + " : " + arr[m1].name + " is updated");
+document.getElementById("text1").value = "";
+ document.getElementById("text2").value= "";
+ document.getElementById("rti").value = "";
+ document.getElementById("cmnt").value= "";
+ document.getElementById("roll").value = "";
+} 
+</script> 
+</html>
